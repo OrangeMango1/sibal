@@ -1,6 +1,7 @@
 package com.example.sibal.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +25,16 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        // 다음 라인을 주석 처리하거나 삭제하여 textHome을 사용하지 않음을 나타냅니다.
+        // binding.textHome.setVisibility(View.GONE);
+
+        // 예제: ViewModel에서 가져온 데이터를 사용하는 방법
+        homeViewModel.getText().observe(getViewLifecycleOwner(), text -> {
+            // 여기에서 가져온 데이터를 사용하는 코드를 추가하세요.
+            // 예를 들어, 가져온 데이터를 로그에 출력하는 코드
+            Log.d("HomeFragment", "Received text from ViewModel: " + text);
+        });
+
         return root;
     }
 

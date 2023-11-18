@@ -20,6 +20,15 @@
             android:text="날짜"
             android:textSize="15sp" />
 
+
+        <ImageButton
+            android:id="@+id/calendarillustration"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitCenter"
+            android:src="@drawable/calender" />
+
         <EditText
             android:id="@+id/edtDate"
             android:layout_width="match_parent"

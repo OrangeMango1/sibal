@@ -6,58 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment">
 
-    <ImageButton
-        android:id="@+id/btn_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:padding="10dp"
-        android:src="@drawable/baseline_chevron_left_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/btn_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_chevron_right_24"
-        android:layout_marginRight="15dp"
-        android:padding="10dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:id="@+id/text_day"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="2023.11.11"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        app:layout_constraintEnd_toStartOf="@id/btn_right"
-        app:layout_constraintStart_toEndOf="@id/btn_left"
-        app:layout_constraintTop_toTopOf="@id/btn_left"
-        app:layout_constraintBottom_toBottomOf="@id/btn_left"
-        android:clickable="true"
-        android:focusable="true"/>
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/top"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:elevation="5dp"
-        android:layout_marginTop="20dp"
+        android:outlineAmbientShadowColor="@color/black"
+        android:layout_marginTop="10dp"
         app:cardCornerRadius="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_day"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/left"
@@ -68,15 +32,27 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/pay"
+                    android:id="@+id/earning"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="하루 사용 가능 금액"
+                    android:text="한달 사용 가능 금액"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="하루 사용 가능 금액"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/earning" />
 
                 <TextView
                     android:id="@+id/revenue"
@@ -114,7 +90,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/text_pay"
+                    android:id="@+id/text_earning"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -123,6 +99,17 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="1000"
+
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_earning" />
 
                 <TextView
                     android:id="@+id/text_revenue"
@@ -161,7 +148,7 @@
         android:id="@+id/scoll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="260dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -172,46 +159,63 @@
         <LinearLayout
             android:id="@+id/linear"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/asset"
-                android:layout_width="87dp"
+                android:id="@+id/text_day"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:ems="10"
-                android:inputType="text"
-                android:text=""
-                android:textSize="15dp" />
+                android:textSize="20dp"/>
 
 
-            <TextView
-                android:id="@+id/classification"
-                android:layout_width="106dp"
+            <LinearLayout
+                android:id="@+id/linear2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:ems="10"
-                android:inputType="text"
-                android:text=""
-                android:textSize="15dp" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/amount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                android:text=""
-                android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/asset"
+                    android:layout_width="87dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text=""
+                    android:textSize="15dp" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:text="+"/>
+
+                <TextView
+                    android:id="@+id/classification"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text=""
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text=""
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:text="+"/>
+
+
+            </LinearLayout>
+
 
 
         </LinearLayout>
@@ -226,7 +230,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="220dp"
         android:text="자산"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -238,7 +242,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="220dp"
         android:text="분류"
         android:textSize="25dp"
         app:layout_constraintStart_toEndOf="@+id/textView"
@@ -249,7 +253,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="220dp"
         android:text="금액"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"

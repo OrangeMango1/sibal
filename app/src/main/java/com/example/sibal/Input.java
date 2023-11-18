@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import java.text.SimpleDateFormat;
@@ -54,9 +55,9 @@ public class Input extends AppCompatActivity {
         classAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         edtClass.setAdapter(classAdapter);
 
-
-        // 날짜 선택 다이얼로그를 표시하기 위한 클릭 리스너 추가
-        edtDate.setOnClickListener(new View.OnClickListener() {
+        // calendarillustration을 눌렀을 때 달력 표시
+        ImageView calendarillustration = findViewById(R.id.calendarillustration);
+        calendarillustration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDatePickerDialog();
@@ -73,12 +74,12 @@ public class Input extends AppCompatActivity {
                 card = edtCard.getSelectedItem().toString();
                 classification = edtClass.getSelectedItem().toString();
 
-
                 Intent intent = new Intent(Input.this, MainActivity.class);
                 intent.putExtra("str", str);
                 intent.putExtra("selectedDate", selectedDate);
                 intent.putExtra("card",card);
                 intent.putExtra("classification",classification);
+                intent.putExtra("selectedDateFromInput", selectedDate);
                 startActivity(intent);
             }
         });

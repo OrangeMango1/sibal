@@ -55,35 +55,25 @@ public class DashboardFragment extends Fragment {
         String classificationstr = intent.getStringExtra("classification");
         String amountstr = intent.getStringExtra("str");
 
+        String selectedDateFromInput = intent.getStringExtra("selectedDateFromInput");
+
         card.setText(cardstr);
         classification.setText(classificationstr);
         amount.setText(amountstr);
 
         textDay = root.findViewById(R.id.text_day);
-        btnLeft = root.findViewById(R.id.btn_left);
-        btnRight = root.findViewById(R.id.btn_right);
+
+        if (selectedDateFromInput != null) {
+            // Input 액티비티에서 전달받은 날짜를 textDay에 설정
+            textDay.setText(selectedDateFromInput);
+        }
+
 
         // text_day TextView의 클릭 리스너 설정
         textDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDatePickerDialog();
-            }
-        });
-
-        // btn_left 버튼의 클릭 리스너 설정
-        btnLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateDate(-1); // -1은 하루 전을 의미
-            }
-        });
-
-        // btn_right 버튼의 클릭 리스너 설정
-        btnRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateDate(1); // 1은 하루 후를 의미
             }
         });
 
@@ -115,27 +105,6 @@ public class DashboardFragment extends Fragment {
         datePickerDialog.show();
     }
 
-    // 날짜 업데이트 메서드
-    private void updateDate(int daysToAdd) {
-        // 현재 날짜 가져오기
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd", Locale.getDefault());
-
-        try {
-            // 현재 날짜를 Date 객체로 파싱
-            Date currentDate = sdf.parse(textDay.getText().toString());
-
-            // daysToAdd에 따라 날짜를 조절
-            calendar.setTime(currentDate);
-            calendar.add(Calendar.DAY_OF_MONTH, daysToAdd);
-
-            // 업데이트된 날짜를 TextView에 설정
-            String updatedDate = sdf.format(calendar.getTime());
-            updateTextView(updatedDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
 
     // TextView 업데이트 메서드
     private void updateTextView(String date) {
