@@ -18,12 +18,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_list"
-        android:layout_width="332dp"
-        android:layout_height="361dp"
+        android:layout_width="391dp"
+        android:layout_height="367dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView"
-        tools:layout_editor_absoluteY="364dp">
+        app:layout_constraintTop_toBottomOf="@+id/calendarView">
 
         <ListView
             android:id="@+id/listIncome"
